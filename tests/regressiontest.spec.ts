@@ -19,7 +19,7 @@ test.describe.parallel('Parallel execution', () => {
             console.log(`Expected outcome. Test Passed!!!`);
     });
 
-    test('@Network interception along with DELETE call', async ({ page, request }) => {
+    test('Network interception along with DELETE call', async ({ page, request }) => {
         await page.route('**/api/v1/application**', async route => {
             const fakeResponse = {
             status: 200,
@@ -41,7 +41,7 @@ test.describe.parallel('Parallel execution', () => {
         expect(deleteresponse.status()).toBe(200);
     })
 
-    test('@regression API Testing - application CRUD', async ({ request }) => {
+    test('regression API Testing - application CRUD', async ({ request }) => {
         const getresponse = await request.get(`${BASE_API_URL}/application`);
         expect(getresponse.status()).toBe(200);
 
@@ -72,7 +72,7 @@ test.describe.parallel('Parallel execution', () => {
         expect(deleteresponse.status()).toBe(200);
     });
 
-    test('@network interception - full application CRUD mocked', async ({ page }) => {
+    test('network interception - full application CRUD mocked', async ({ page }) => {
 
         let applications = [
             {

@@ -3,7 +3,6 @@ import { Page, Locator } from '@playwright/test';
 export class Loginpage {
   readonly page: Page;
   readonly GetstartedButton: Locator;
-  readonly loginForm: Locator;
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly loginButton: Locator;
@@ -11,10 +10,9 @@ export class Loginpage {
   constructor(page: Page) {
     this.page = page;
     this.GetstartedButton = page.getByRole('button', { name: 'Get Started' });
-    this.loginForm = page.getByRole('form', { name: 'Login form' });
-    this.usernameInput = this.loginForm.getByRole('textbox', { name: 'Username' });
-    this.passwordInput = this.loginForm.getByRole('textbox', { name: 'Password' });
-    this.loginButton = this.loginForm.getByRole('button', { name: 'Login' });
+    this.usernameInput = this.page.getByRole('textbox', { name: 'Username' });
+    this.passwordInput = this.page.getByRole('textbox', { name: 'Password' });
+    this.loginButton = this.page.getByRole('button', { name: 'Login' });
   }
 
   async goto() {
